@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saint Catherine — Sinai's Mountain City</title>
+<meta name="description" content="A visual history and travel-style guide to Saint Catherine, Sinai, built from the supplied historical source and images.">
+<style>
+:root {
+  --night:#07111d;
+  --navy:#0b1e31;
+  --deep:#102c44;
+  --silt:#8d7866;
+  --silt2:#b49b83;
+  --salt:#f2eee7;
+  --ice:#dbe8ef;
+  --blue:#6ea6c8;
+  --blue2:#9dc6db;
+  --line:rgba(219,232,239,.14);
+  --glass:rgba(11,30,49,.72);
+  --shadow:0 20px 70px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--salt);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92vw);margin:auto}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(7,17,29,.68);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:70px}
+.brand{font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.9rem}
+.brand span{color:var(--blue2)}
+.navlinks{display:flex;gap:24px;font-size:.88rem;color:#d8e2e8}
+.navlinks a:hover{color:white}
+.hero{min-height:96vh;display:grid;place-items:end;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,29,.05),rgba(7,17,29,.25) 40%,var(--night) 100%),url('saint-catherine-01.jpg') center/cover}
+.hero-content{position:relative;z-index:2;padding:150px 0 100px;width:min(920px,92vw)}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(219,232,239,.22);background:rgba(7,17,29,.38);padding:7px 12px;border-radius:999px;color:var(--ice);font-size:.76rem;letter-spacing:.13em;text-transform:uppercase}
+h1{font-family:Georgia,serif;font-size:clamp(3.2rem,8vw,7.5rem);line-height:.94;margin:20px 0 24px;letter-spacing:-.045em}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);max-width:720px;color:#d9e3e8}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:12px 17px;border-radius:10px;border:1px solid var(--line);background:rgba(242,238,231,.09);font-weight:700}
+.btn.primary{background:var(--salt);color:var(--night)}
+section{padding:100px 0}
+.section-head{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;margin-bottom:44px}
+.kicker{color:var(--blue2);font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800}
+h2{font-family:Georgia,serif;font-size:clamp(2.1rem,4vw,4rem);line-height:1.02;margin:8px 0}
+.lead{font-size:1.1rem;color:#c7d5dc}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+.stat{padding:22px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border-radius:14px}
+.stat strong{display:block;font-family:Georgia,serif;font-size:2rem;color:var(--salt)}
+.stat span{color:#aebfc9;font-size:.82rem}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.card-body{padding:26px}
+.card h3{font-family:Georgia,serif;font-size:1.65rem;margin:0 0 10px}
+.muted{color:#a9bac4}
+.card img{width:100%;height:340px;object-fit:cover;display:block}
+.timeline{position:relative;margin-top:30px}
+.timeline::before{content:"";position:absolute;left:105px;top:0;bottom:0;width:1px;background:var(--line)}
+.event{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:26px 0}
+.event-date{color:var(--blue2);font-weight:800;font-size:.85rem}
+.event-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(255,255,255,.035)}
+.event-card h3{margin:0 0 5px;font-family:Georgia,serif;font-size:1.35rem}
+.eras{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.era{padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035)}
+.era h3{font-size:1rem;margin:0 0 8px}
+.era .date{color:var(--blue2);font-size:.75rem}
+.era p{font-size:.82rem;color:#b9c8d0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;background:#0a1927;border:1px solid var(--line)}
+.gallery img{width:100%;height:250px;object-fit:cover;display:block}
+.gallery figcaption{padding:12px 14px;font-size:.78rem;color:#b9c7ce}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{padding:28px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(110,166,200,.12),rgba(255,255,255,.025))}
+.icon{font-size:1.5rem;color:var(--blue2)}
+.feature h3{font-family:Georgia,serif;font-size:1.3rem;margin:10px 0}
+.callout{padding:35px;border-radius:20px;border:1px solid rgba(157,198,219,.22);background:linear-gradient(135deg,rgba(110,166,200,.12),rgba(141,120,102,.08))}
+.callout strong{color:white}
+footer{border-top:1px solid var(--line);padding:50px 0 70px;color:#a8b8c1}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}
+.small{font-size:.78rem}
+@media(max-width:900px){
+ .navlinks{display:none} .section-head,.split{grid-template-columns:1fr} .stats{grid-template-columns:repeat(2,1fr)} .eras{grid-template-columns:1fr 1fr} .gallery,.feature-grid{grid-template-columns:1fr 1fr} .timeline::before{display:none} .event{grid-template-columns:1fr;gap:8px}
+}
+@media(max-width:560px){.stats,.eras,.gallery,.feature-grid{grid-template-columns:1fr} h1{font-size:3.5rem} section{padding:72px 0}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">SAINT <span>CATHERINE</span></a>
+    <div class="navlinks">
+      <a href="#story">Story</a><a href="#timeline">Timeline</a><a href="#mountains">Mountains</a><a href="#eras">Eras</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="container hero-content">
+    <span class="eyebrow">Sinai · Egypt · Mountain Heritage</span>
+    <h1>Saint Catherine,<br>where stone holds memory.</h1>
+    <p>A cinematic digital guide to the high mountain landscape around Saint Catherine, Mount Catherine, Mount Sinai, and Saint Catherine’s Monastery—built from the supplied historical source and image collection.</p>
+    <div class="actions"><a class="btn primary" href="#story">Explore the story</a><a class="btn" href="#timeline">View timeline</a></div>
+  </div>
+</header>
+
+<main>
+<section id="story">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">The place</span><h2>A city shaped by mountains, pilgrimage and time.</h2></div>
+      <div>
+        <p class="lead">Saint Catherine sits in the high Sinai massif, beside the religiously iconic Mount Sinai. The supplied history describes a landscape whose story moves from prehistoric shelter and ancient mining to Christian monasticism, Islamic protection, modern conservation and UNESCO recognition.</p>
+        <div class="stats">
+          <div class="stat"><strong>2,629 m</strong><span>Mount Catherine elevation</span></div>
+          <div class="stat"><strong>330 CE</strong><span>Helena’s chapel tradition</span></div>
+          <div class="stat"><strong>527–565</strong><span>Justinian’s fortress era</span></div>
+          <div class="stat"><strong>2002</strong><span>UNESCO inscription</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="split">
+      <article class="card"><img src="saint-catherine-02.jpg" alt="Mountain landscape of Saint Catherine" class="" loading="lazy"><div class="card-body"><h3>Mount Catherine — the Roof of Egypt</h3><p class="muted">The source identifies Mount Catherine (Gebel Katherina) as Egypt’s highest mountain at 2,629 metres. Its jagged Precambrian volcanic and granite terrain forms part of the high-altitude Sinai massif.</p></div></article>
+      <article class="card"><img src="saint-catherine-03.jpg" alt="Snow on the high mountain slopes" class="" loading="lazy"><div class="card-body"><h3>Cold, rare and rugged</h3><p class="muted">Winter temperatures can fall below freezing and snow can blanket the summit. The slopes are protected under Saint Catherine National Park and host rare wildlife including the Sinai baton blue butterfly and Nubian ibex.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">A long memory</span><h2>Timeline of Saint Catherine</h2></div>
+      <p class="lead">From early human presence to modern heritage protection, the story is layered rather than linear.</p>
+    </div>
+    <div class="timeline">
+      <div class="event"><div class="event-date">c. 4000–3000 BCE</div><div class="event-card"><h3>Chalcolithic Era</h3><div class="muted">Seasonal prehistoric camps occupied the high mountain plateau. Archaeologists found a cave with red-pigment rock paintings and ancient graffiti.</div></div></div><div class="event"><div class="event-date">16th century BCE</div><div class="event-card"><h3>Pharaonic mining networks</h3><div class="muted">The surrounding region was integrated into ancient Egyptian mining networks, associated in the source with turquoise and copper extraction.</div></div></div><div class="event"><div class="event-date">3rd century CE</div><div class="event-card"><h3>Early monastic presence</h3><div class="muted">Hermits and Christian ascetics settled in the rugged valleys around Mount Sinai for solitude and prayer.</div></div></div><div class="event"><div class="event-date">330 CE</div><div class="event-card"><h3>Chapel of the Burning Bush</h3><div class="muted">Empress Helena commissioned a small tower and chapel at the site traditionally associated with the Biblical Burning Bush.</div></div></div><div class="event"><div class="event-date">527–565 CE</div><div class="event-card"><h3>Justinian’s fortress-monastery</h3><div class="muted">Byzantine Emperor Justinian I commissioned the fortified monastery to protect monks and enclose the sacred site.</div></div></div><div class="event"><div class="event-date">c. 625 CE</div><div class="event-card"><h3>The Ashtiname tradition</h3><div class="muted">The supplied source describes a pledge of protection associated with Prophet Muhammad that guaranteed security, freedom of worship, and exemption from taxes.</div></div></div><div class="event"><div class="event-date">8th–9th century CE</div><div class="event-card"><h3>Relics of Saint Catherine</h3><div class="muted">Christian tradition records the discovery of Saint Catherine of Alexandria’s relics on a nearby mountain peak, influencing the naming of the monastery and peak.</div></div></div><div class="event"><div class="event-date">1844</div><div class="event-card"><h3>Codex Sinaiticus</h3><div class="muted">Constantin von Tischendorf removed portions of the Codex Sinaiticus from the monastery’s library; the source notes its later arrival at the British Library.</div></div></div><div class="event"><div class="event-date">1905</div><div class="event-card"><h3>Summit chapel</h3><div class="muted">A dedicated stone chapel was erected on the rocky summit of Mount Catherine.</div></div></div><div class="event"><div class="event-date">1988</div><div class="event-card"><h3>Natural reserve</h3><div class="muted">Egypt declared the area a Natural Reserve to protect its high-altitude desert ecology, granite ecosystems, and rare mountain plants.</div></div></div><div class="event"><div class="event-date">2002</div><div class="event-card"><h3>UNESCO World Heritage status</h3><div class="muted">The source states that Mount Catherine and the surrounding mountain landscape were inscribed as a UNESCO World Heritage Site.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="mountains">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">High country</span><h2>Mount Catherine & the summit landscape</h2></div>
+      <p class="lead">The summit is more than a viewpoint: the supplied source connects it to geology, pilgrimage, scientific observation, rare ecology and a demanding mountain route.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature"><div class="icon">△</div><h3>Geology</h3><p class="muted">Massive Precambrian volcanic and granite rocks, shaped by major fault lines over millions of years.</p></div>
+      <div class="feature"><div class="icon">❄</div><h3>Climate</h3><p class="muted">Among Egypt’s coldest winter environments, with freezing temperatures and occasional heavy snow at the peak.</p></div>
+      <div class="feature"><div class="icon">✦</div><h3>Summit landmarks</h3><p class="muted">A small Orthodox chapel dedicated to Saint Catherine was built at the summit in 1905, alongside a meteorological research station.</p></div>
+      <div class="feature"><div class="icon">◌</div><h3>Wildlife</h3><p class="muted">The source highlights the Sinai baton blue butterfly and Nubian ibex among the rare wildlife of the protected slopes.</p></div>
+      <div class="feature"><div class="icon">⌁</div><h3>Prehistory</h3><p class="muted">A high mountain cave contains red-pigment paintings and ancient graffiti, evidence of human presence thousands of years ago.</p></div>
+      <div class="feature"><div class="icon">↗</div><h3>Panoramic reward</h3><p class="muted">The strenuous summit route is described as offering broad views across the Sinai Peninsula, including the Gulf of Aqaba and Gulf of Suez on clear days.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="eras">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">Five administrations</span><h2>Political eras around the monastery</h2></div>
+      <p class="lead">The source frames Saint Catherine’s history through successive administrations while emphasizing the continuity of the monastery and its protected religious life.</p>
+    </div>
+    <div class="eras">
+      <article class="era"><h3>Byzantine Empire</h3><div class="date">4th–7th century CE</div><p>Founded under Justinian; established architecture, defensive walls, and early Christian administration.</p></article><article class="era"><h3>Islamic Caliphates</h3><div class="date">7th–12th century CE</div><p>The region came under Muslim rule; the source highlights the Ashtiname tradition and a Fatimid-era mosque inside the monastery walls.</p></article><article class="era"><h3>Ayyubid &amp; Mamluk Sultanates</h3><div class="date">12th–16th century CE</div><p>Relations with Islamic rulers preserved the monastery’s autonomy and protected it from regional conflicts.</p></article><article class="era"><h3>Ottoman Empire</h3><div class="date">1517–1867 CE</div><p>The monastery maintained semi-autonomous status under Ottoman sovereignty and imperial decrees (firmans).</p></article><article class="era"><h3>Modern Egypt</h3><div class="date">19th century–present</div><p>Integrated into modern Egyptian governance, with modernization and infrastructure growth; the source notes the Jebeliya Bedouin community’s long relationship with the monastery.</p></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">The monastery</span><h2>A fortified sanctuary at the foot of the mountains.</h2></div>
+      <p class="lead">The supplied history describes a monastic tradition beginning with hermits and ascetics, followed by imperial construction, centuries of changing political rule and continuing protection.</p>
+    </div>
+    <div class="split">
+      <article class="card"><img src="saint-catherine-04.jpg" alt="Saint Catherine monastery and mountain setting" class="" loading="lazy"><div class="card-body"><h3>From Transfiguration to Saint Catherine</h3><p class="muted">Originally known as the Monastery of the Transfiguration or Monastery of Mount Sinai, the complex was later renamed after Saint Catherine of Alexandria following the reported discovery of her relics nearby.</p></div></article>
+      <article class="card"><img src="saint-catherine-05.jpg" alt="Snowy pilgrimage landscape" class="" loading="lazy"><div class="card-body"><h3>Faith across traditions</h3><p class="muted">The source records the Biblical traditions of Moses and the Burning Bush, the Christian monastic heritage, and the Ashtiname tradition associated with Prophet Muhammad’s protection of the monks.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="kicker">Visual archive</span><h2>The mountain in many eras.</h2></div>
+      <p class="lead">All supplied images are incorporated across the experience, pairing visual storytelling with the historical sections they best support.</p>
+    </div>
+    <div class="gallery">
+      <figure><img src="saint-catherine-01.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-02.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-03.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-04.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-05.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-06.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-07.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-08.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-09.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-10.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-11.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-12.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure><figure><img src="saint-catherine-13.jpg" alt="Saint Catherine and Sinai landscape" class="" loading="lazy"><figcaption>Saint Catherine · Sinai mountain landscape</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="container">
+    <div class="callout">
+      <span class="kicker">Mountain route</span>
+      <h2>The Mount Catherine ascent</h2>
+      <p class="lead">The supplied source describes the climb as a strenuous 10.5-kilometre trek, primarily following the zigzagging Shaq Mousa path from the valley base into high-altitude alpine terrain.</p>
+      <div class="feature-grid" style="margin-top:24px">
+        <div class="feature"><h3>Difficulty</h3><p class="muted">Strenuous / hard; requires excellent physical fitness, sure-footed scrambling across granite scree and acclimatization.</p></div>
+        <div class="feature"><h3>Guide</h3><p class="muted">The source states that a certified Bedouin guide from the local Jebeliya tribe is mandatory because of the rugged, unmarked terrain and border proximity.</p></div>
+        <div class="feature"><h3>The reward</h3><p class="muted">Quiet, panoramic summit views across the Sinai Peninsula, with the source noting the Gulf of Aqaba and Gulf of Suez on clear days.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><div class="brand">SAINT <span>CATHERINE</span></div><p class="small">A Night Silt / Blue / White / Navy visual concept for a Saint Catherine city-history website.</p></div>
+    <div><strong>Source basis</strong><p class="small">Content is based on the supplied 5-page historical document. Historical claims are presented according to that source.</p></div>
+    <div><strong>Design direction</strong><p class="small">Night-silt palette · editorial typography · immersive mountain photography · responsive layout.</p></div>
+  </div>
+</footer>
+</body>
+</html>
